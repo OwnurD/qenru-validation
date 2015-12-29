@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>qenru Form Validation Plugin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.qenruformvalidation.css" />
+    <link rel="stylesheet" href="css/sweetalert2.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-fileinput.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,200,500,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="my-container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="qenru-detail">
+                    <h1>qenru Form Validation</h1>
+                    <div class="changeParameters">
+                        <span class="change-alert">
+                            <label>Change Error Style</label>
+                            <select id="alert-style">
+                                <option value="inline" selected>Inline Style</option>
+                                <option value="sweetalert">Sweet Alert</option>
+                            </select>
+                        </span>
+                        <span class="change-alert">
+                            <label>Ajax Request Status</label>
+                            <select id="ajax-request">
+                                <option value="false" selected>Off</option>
+                                <option value="true">On</option>
+                            </select>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="codeWrapper">
+                        <h2>How to use</h2>
+                        <h3>1st Step >> Link required files</h3>
+                        <div class="codes">
+                            <pre><code data-language="html" class="rainbow"><span class="comment html">&lt;!-- jQuery library (served from Google) --&gt;</span>
+                                <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">script</span></span> <span class="support attribute">src</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag special">/</span><span class="support tag-name">script</span></span><span class="support tag close">&gt;</span>
+                                <span class="comment html">&lt;!-- qenru Form Validation Javascript file --&gt;</span>
+                                <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">script</span></span> <span class="support attribute">src</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">/js/jquery.qenruformvalidation.min.js</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag special">/</span><span class="support tag-name">script</span></span><span class="support tag close">&gt;</span>
+                                <span class="comment html">&lt;!-- Sweet Alert Library (served from Sweet Alert) --&gt;</span>
+                                <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">script</span></span> <span class="support attribute">src</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">/js/sweetalert2.js</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag special">/</span><span class="support tag-name">script</span></span><span class="support tag close">&gt;</span>
+                                <span class="comment html">&lt;!-- jQuery Masked Input Library (served from digitalbush.com) --&gt;</span>
+                                <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">script</span></span> <span class="support attribute">src</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">/js/jquery.maskedinput.min.js</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag special">/</span><span class="support tag-name">script</span></span><span class="support tag close">&gt;</span>
+                                <span class="comment html">&lt;!-- qenru Form Validation CSS file --&gt;</span>
+                                <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">link</span></span> <span class="support attribute">href</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">/css/jquery.qenruformvalidation.css</span><span class="string quote">"</span> <span class="support attribute">rel</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">stylesheet</span><span class="string quote">"</span> <span class="support tag close">&gt;</span></code></pre>
+                            </div>
+                            <h3>2nd Step >> Link optional files</h3>
+                            <div class="codes">
+                                <pre><code data-language="html" class="rainbow"><span class="comment html">&lt;!-- Bootstrap library (served from Bootstrap) --&gt;</span>
+                                    <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">script</span></span> <span class="support attribute">src</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">/js/bootstrap.min.js</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag special">/</span><span class="support tag-name">script</span></span><span class="support tag close">&gt;</span>
+                                    <span class="comment html">&lt;!-- Bootstrap CSS file --&gt;</span>
+                                    <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">link</span></span> <span class="support attribute">href</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">/css/bootstrap.css</span><span class="string quote">"</span> <span class="support attribute">rel</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">stylesheet</span><span class="string quote">"</span> <span class="support tag close">&gt;</span>
+                                    <span class="comment html">&lt;!-- Fontawesome CSS file --&gt;</span>
+                                    <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">link</span></span> <span class="support attribute">href</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">/css/font-awesome.min.css</span><span class="string quote">"</span> <span class="support attribute">rel</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">stylesheet</span><span class="string quote">"</span> <span class="support tag close">&gt;</span></code></pre>
+                                </div>
+                                <h3>3rd Step >> HTML markup</h3>
+                                <div class="codes">
+                                    <pre><code data-language="html" class="rainbow"><span class="comment html">&lt;!-- Input Text ( Required Format )--&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">text</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-required</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">true</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">radio</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-required</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">true</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">checkbox</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-required</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">true</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+
+                                        <span class="comment html">&lt;!-- Input Password ( minimum character limitation )--&gt;</span>
+                                        <span class="comment html">&lt;!-- data-label ( Define field name for error message with data-label attribute )--&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">password</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-min</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">6</span><span class="string quote">"</span> <span class="support attribute">data-label</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">Password</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+
+                                        <span class="comment html">&lt;!-- Input Password ( maximum character limitation )--&gt;</span>
+                                        <span class="comment html">&lt;!-- data-type ( Define data-type as text to validate elements like type text )--&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">textarea</span></span> <span class="support attribute">data-type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">text</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-max</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">30</span><span class="string quote">"</span> <span class="support attribute">data-label</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">Message</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+
+                                        <span class="comment html">&lt;!-- Input Password & Password Again ( Value matching validation )--&gt;</span>
+                                        <span class="comment html">&lt;!-- data-rel ( Check fields which has the same data-rel value )--&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">password</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-match</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">true</span><span class="string quote">"</span> <span class="support attribute">data-rel</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">1</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">password</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-match</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">true</span><span class="string quote">"</span> <span class="support attribute">data-rel</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">1</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+
+                                        <span class="comment html">&lt;!-- Input Email Validation --&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">text</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">email</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+
+                                        <span class="comment html">&lt;!-- Input Phone Validation --&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">input</span></span> <span class="support attribute">type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">text</span><span class="string quote">"</span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">input-group</span><span class="string quote">"</span> <span class="support attribute">data-type</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">tel</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+                                        <span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">span</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">form-error</span><span class="string quote">"</span><span class="support tag close">&gt;</span><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">/span</span></span><span class="support tag close">&gt;</span>
+                                    </code></pre>
+                                </div>
+                                <h3>4th Step >> Call the qenru Validation</h3>
+                                <div class="codes">
+                                    <pre><code data-language="javascript" class="rainbow"><span class="selector">$</span>(<span class="string">"#formID"</span>).<span class="function call">qValidate</span>();</code></pre>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-3 col-xs-12 col-sm-push-5">
+                            <div class="detailWrapper">
+                                <ul>
+                                    <li class="head-title">VERSION 1.0.0 includes features of >></li>
+                                    <li>Required fields validation</li>
+                                    <li>Values of fields matching validation</li>
+                                    <li>Checkbox & Radio input validation</li>
+                                    <li>Min & Max character length validation</li>
+                                    <li>Alert style option ( inline , sweet alert )</li>
+                                    <li>Input mask options</li>
+                                    <li>Input file validation</li>
+                                    <li>Ajax form request</li>
+                                    <li>Ajax method & other attributes management</li>
+                                    <li>Ajax response management ( via functions )</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5 col-xs-12 col-sm-pull-3">
+                            <div id="content">
+                                <h2>FORM EXAMPLE</h2>
+                                <form id="qenruValidation" action="url.php"  method="post" class="clearfix">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="col-sm-6 col-xs-12 form-group">
+                                            <label class="control-label form-title">Name</label>
+                                            <input type="text" class="input-group form-control" data-required="true" name="name" data-label="Name">
+                                            <span class="form-error"></span>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12 form-group">
+                                            <label class="control-label form-title">Surname</label>
+                                            <input type="text" class="input-group form-control" name="surname">
+                                            <span class="form-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="col-sm-6 col-xs-12 form-group">
+                                            <label class="control-label form-title">Password (min. 3 characters)</label>
+                                            <input type="text" class="input-group form-control" data-min="3" data-label="Password" data-required="true" data-match="true" data-rel="1">
+                                            <span class="form-error"></span>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12 form-group">
+                                            <label class="control-label form-title">Password Again (min. 3 characters)</label>
+                                            <input type="text" class="input-group form-control" data-min="3" data-label="Password Again" data-required="true" data-match="true" data-rel="1">
+                                            <span class="form-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="col-sm-6 col-xs-12 form-group">
+                                            <label class="control-label form-title">Email Address</label>
+                                            <input type="text" class="input-group form-control" data-required="true" data-type="email">
+                                            <span class="form-error"></span>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12 form-group">
+                                            <label class="control-label form-title">Phone Number</label>
+                                            <input type="text" class="input-group form-control" data-required="true" data-type="tel">
+                                            <span class="form-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="col-sm-3 col-xs-12 form-group">
+                                            <label class="control-label form-title">Select Required</label>
+                                            <select class="input-group form-control" data-required="true" data-type="text">
+                                                <option value="">None Selected</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                            </select>
+                                            <span class="form-error"></span>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12 form-group">
+                                            <label class="control-label form-title">Select Not Required</label>
+                                            <select class="input-group form-control" data-type="select">
+                                                <option value="">None Selected</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="1">Option 2</option>
+                                            </select>
+                                            <span class="form-error"></span>
+                                        </div>
+                                        <div  class="col-sm-3 col-xs-12 form-group">
+                                            <label class="control-label form-title">Checkbox</label>
+                                            <div class="checkbox checkbox-inline">
+                                                <input id="e1" type="checkbox" name="element-1" data-required="true" class="input-group form-control">
+                                                <label for="e1">
+                                                    <span>Option 1</span>
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline">
+                                                <input id="e2" type="checkbox" name="element-1" data-required="true" class="input-group form-control">
+                                                <label for="e2">
+                                                    <span>Option 2</span>
+                                                </label>
+                                            </div>
+                                            <span class="form-error"></span>
+                                        </div>
+                                        <div  class="col-sm-3 col-xs-12 form-group">
+                                            <label class="control-label form-title">Radio</label>
+                                            <div class="pull-left radio radio-inline radio-success ">
+                                                <input id="cd1" type="radio" name="element-2" data-required="true" class="input-group form-control">
+                                                <label for="cd1">
+                                                    Option 1
+                                                </label>
+                                            </div>
+                                            <div class="pull-left radio radio-inline radio-success ">
+                                                <input id="cd2" type="radio" name="element-2" data-required="true" class="input-group form-control">
+                                                <label for="cd2">
+                                                    Option 2
+                                                </label>
+                                            </div>
+                                            <span class="form-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div  class="col-sm-12 col-xs-12 form-group">
+                                            <label class="control-label form-title">Textbox (max 30 characters)</label>
+                                            <textarea name="" id="" cols="30" rows="6" class="input-group form-control" data-type="text" data-required="true" data-max="30" data-label="Textbox"></textarea>
+                                            <span class="form-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+
+                                        <div class="col-sm-3 col-xs-12">
+
+                                            <input class="btn btn-danger" type="submit" value="SUBMIT">
+                                        </div>
+                                    </div>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> 
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+        <script type="text/javascript" src="js/sweetalert2.js"></script>
+        <script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+        <script type="text/javascript" src="js/jquery.qenruformvalidation.js"></script>
+        <script type="text/javascript">
+            var type = sessionStorage.getItem('alertType');
+            var aRequest = sessionStorage.getItem('ajaxRequest');
+            $('#alert-style').val(type);
+            $('#ajax-request').val(aRequest);
+        </script>
+
+
+
+        <script type="text/javascript">
+            var type = sessionStorage.getItem("alertType");
+            var aRequest = sessionStorage.getItem('ajaxRequest') == "true";
+            console.log(sessionStorage.getItem('ajaxRequest'));
+            console.log(aRequest);
+            $('#qenruValidation').qValidate({
+                alertType : type,
+                ajaxRequest : aRequest,
+                phoneMask : true,
+                ajaxRequest: true,
+                url: "url.php",
+                requestMethod: "POST",
+                dataType: "json",
+                ajaxOnSuccess: function (response) {
+                    
+                    if (response.success) {
+                        swal({
+                            title: response.data,
+                            type: 'success',
+                            html: response.script
+                        });
+                    //swal(response.data, response.script, "success");
+                    $('.confirm').click(function () {
+                        location.reload();
+                    });
+                }
+                else {
+                    
+                    sweetAlert(response.data, "", "error");
+                }
+            },
+            ajaxOnError: function (response) {
+                sweetAlert(response.data, "", "error");
+            }
+        });
+</script>  
+
+
+<script type="text/javascript">
+    $('#alert-style').change(function(){
+        sessionStorage.setItem("alertType",$(this).val());
+        window.location.reload();
+    });
+    $('#ajax-request').change(function(){
+        sessionStorage.setItem("ajaxRequest",$(this).val());
+        window.location.reload();
+    });
+</script>
+</body>
+</html>
