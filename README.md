@@ -31,10 +31,10 @@ data-rel = "<number>" -> Works with data-match attribute and stands for checking
 
 Example for data-match and data-rel :
 
-<input type="password" data-required="true" data-match="true" data-rel="1" data-min="3" placeholder="Password"/>
-<input type="password" data-required="true" data-match="true" data-rel="1" data-min="3" placeholder="Password Again"/>
+"<input type="password" data-required="true" data-match="true" data-rel="1" data-min="3" placeholder="Password"/>"
+"<input type="password" data-required="true" data-match="true" data-rel="1" data-min="3" placeholder="Password Again"/>"
 
-<input type="text" data-required="true" data-match="true" data-rel="2" data-type="email" placeholder="Email"/>
-<input type="text" data-required="true" data-match="true" data-rel="2" data-type="email" placeholder="Email Again"/>
+"<input type="text" data-required="true" data-match="true" data-rel="2" data-type="email" placeholder="Email"/>"
+"<input type="text" data-required="true" data-match="true" data-rel="2" data-type="email" placeholder="Email Again"/>"
 
 
