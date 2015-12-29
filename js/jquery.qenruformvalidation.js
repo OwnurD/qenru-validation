@@ -185,6 +185,7 @@
 if (!err && ajax) {
   var form = $('#' + form).serialize();
   dataPost(form,url,postDataType,requestMethod,ajaxOnSuccess,ajaxOnError);
+  e.preventDefault();
 }
 else
 {
